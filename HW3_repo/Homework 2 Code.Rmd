@@ -1,0 +1,57 @@
+---
+title: "Homework 2"
+author: "Quinlan Batcheller"
+date: "2022-09-01"
+output: html_document
+---
+
+```{r, chunck1}
+C1Survey <-
+  read.csv("https://raw.githubusercontent.com/kijohnson/ADA/master/Class%201%20Survey%20Fall%202022.csv")
+```
+
+```{r, chunck2}
+View(C1Survey)
+```
+
+```{r, chunck3}
+dim(C1Survey)
+```
+```{r, chunck4}
+colnames(C1Survey)
+```
+
+```{r, chunck5}
+names(C1Survey)[1:27]<-c("ID", "like_cats", "like_dogs", "desert_island_item", "life_slogan", "favorite_day", "night_morning_person", "favorite_food", "favorite_drink", "favorite_season", "favorite_month", "favorite_hobby", "current_degree", "primary_specialization", "primary_stats_software", "r_experience", "coding_comfort", "length_of_coding", "hope_to_learn_in_course", "area_of_interest", "favorite_number", "birth_day", "birth_month", "home_country", "home_state", "home_city", "education_level")
+
+colnames(C1Survey)
+```
+
+```{r, chunk6}
+sapply(C1Survey, typeof)
+```
+
+```{r, chunck7}
+class(C1Survey$birth_day)
+class(C1Survey$birth_month)
+```
+
+```{r, chunck8}
+C1Survey$birth_day<-as.numeric(C1Survey$birth_day)
+C1Survey$birth_month<-as.numeric(C1Survey$birth_month)
+```
+```{r, chunck9}
+sum(is.na(C1Survey$birth_day))
+sum(is.na(C1Survey$birth_month))
+## I would omit these missing values from the data so that calculations could still be run on the data that is not missing
+```
+
+```{r, chunck8}
+na.omit(C1Survey$birth_day)
+na.omit(C1Survey$birth_month)
+```
+
+```{r, chunck9}
+median(C1Survey$birth_day, na.rm=TRUE)
+median(C1Survey$birth_month, na.rm=TRUE)
+```
