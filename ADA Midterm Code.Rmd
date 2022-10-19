@@ -7,25 +7,37 @@ output: html_document
 
 ```{r}
 titanic <- read.csv("https://raw.githubusercontent.com/kijohnson/Data/main/titanic.csv")
+#Import data
 ```
 
 ```{r}
 pacman::p_load(dplyr, tidyverse, foreign, haven)
+#Load libraries
 ```
 
 ```{r}
 colnames(titanic)
+#Look at column names
 ```
 
 ```{r}
 by(titanic$Age, titanic$Pclass, summary)
+#Find median age by passenger class
 ```
 
 ```{r}
 ggplot(titanic, aes(Age, Pclass)) +
   geom_boxplot()
+#Plot boxplot
 ```
 
 ```{r}
 titanic$Pclass <- factor(titanic$Pclass)
+#Make passenger class a factor for the boxplot
 ```
+
+```{r}
+by(titanic$Sex, titanic$Pclass, summary)
+#Percentage of males and females by class
+```
+
