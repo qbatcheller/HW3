@@ -1,0 +1,31 @@
+---
+title: "Midterm Assignment"
+author: "Quinlan Batcheller"
+date: "2022-10-13"
+output: html_document
+---
+
+```{r}
+titanic <- read.csv("https://raw.githubusercontent.com/kijohnson/Data/main/titanic.csv")
+```
+
+```{r}
+pacman::p_load(dplyr, tidyverse, foreign, haven)
+```
+
+```{r}
+colnames(titanic)
+```
+
+```{r}
+by(titanic$Age, titanic$Pclass, summary)
+```
+
+```{r}
+ggplot(titanic, aes(Age, Pclass)) +
+  geom_boxplot()
+```
+
+```{r}
+titanic$Pclass <- factor(titanic$Pclass)
+```
